@@ -6,7 +6,7 @@ on:
       - main # Here source code branch is `main`, it could be other branch
 
 jobs:
-  setup_node:
+  build_and_deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -22,12 +22,6 @@ jobs:
           TINA_PUBLIC_CLIENT_ID: ${{ secrets.TINA_PUBLIC_CLIENT_ID }}
           TINA_TOKEN: ${{ secrets.TINA_TOKEN }}
         run: npx tinacms build
-
-  build_and_deploy:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-
       # Use GitHub Actions' cache to cache dependencies on servers
       - uses: actions/cache@v3
         with:
