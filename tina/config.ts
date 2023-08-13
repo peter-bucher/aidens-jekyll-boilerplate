@@ -4,8 +4,8 @@ const branch = "main";
 
 export default defineConfig({
   branch,
-  clientId: "${{ secrets.TINA_PUBLIC_CLIENT_ID }}", // Get this from tina.io
-  token: "${{ secrets.TINA_PUBLIC_CLIENT_ID }}", // Get this from tina.io
+  clientId: process.env.TINA_PUBLIC_CLIENT_ID, // Get this from tina.io
+  token: process.env.TINA_PUBLIC_TOKEN, // Get this from tina.io
 
   build: {
     outputFolder: "admin",
