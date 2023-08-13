@@ -1,14 +1,14 @@
 import { defineConfig } from "tinacms";
 
 const BRANCH = process.env.HEAD || process.env.VERCEL_GIT_COMMIT_REF || "main";
-const CLIENT_ID = String(process.env.TINA_PUBLIC_CLIENT_ID ?? "");
-const TOKEN = String(process.env.TINA_TOKEN ?? "");
-const SEARCH = String(process.env.TINA_SEARCH_TOKEN ?? "");
+const TINA_PUBLIC_CLIENT_ID = String(process.env.TINA_PUBLIC_CLIENT_ID ?? "");
+const TINA_TOKEN = String(process.env.TINA_TOKEN ?? "");
+const TINA_SEARCH_TOKEN = String(process.env.TINA_SEARCH_TOKEN ?? "");
 
 export default defineConfig({
   branch: BRANCH,
-  clientId: CLIENT_ID,
-  token: TOKEN,
+  clientId: TINA_PUBLIC_CLIENT_ID,
+  token: TINA_TOKEN,
   build: {
     outputFolder: "admin",
     publicFolder: "/",
@@ -99,7 +99,7 @@ export default defineConfig({
   },
   search: {
     tina: {
-      indexerToken: SEARCH,
+      indexerToken: TINA_SEARCH_TOKEN,
       stopwordLanguages: ["eng"],
     },
     indexBatchSize: 100,
