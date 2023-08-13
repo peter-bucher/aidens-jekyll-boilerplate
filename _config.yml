@@ -10,6 +10,7 @@ collections:
 tagline:
 description:
 contact:
+baseurl: "/aidens-jekyll-boilerplate"
 picture:
   source: "assets/uploads"
   output: "assets/generated-images"
