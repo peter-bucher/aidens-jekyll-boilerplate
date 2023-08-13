@@ -6,10 +6,10 @@ export default defineConfig({
   branch,
   clientId: process.env.TINA_PUBLIC_CLIENT_ID,
   token: process.env.TINA_TOKEN,
-
   build: {
     outputFolder: "admin",
     publicFolder: "/",
+    basePath: "aidens-jekyll-boilerplate",
   },
   media: {
     tina: {
