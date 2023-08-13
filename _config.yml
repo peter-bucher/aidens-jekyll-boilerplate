@@ -14,6 +14,6 @@ tagline:
 description:
 contact:
 picture:
-  source: "uploads/"
-  output: "uploads/generated-images"
+  source: "assets/uploads"
+  output: "assets/generated-images"
   suppress_warnings: true
