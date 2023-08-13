@@ -15,6 +15,11 @@ You need to create three secrets in the repo. All three come from your Tina proj
 - `TINA_TOKEN` : Your Tina "Content (Readonly)" token. Found under "Tokens" in the sidebar
 - `TINA_SEARCH_TOKEN` : Your Tina "Search" token. Found under "Tokens" in the sidebar
 
+### tina/config.ts
+Make sure to update `build.basepath` in `tina/config.ts`! You can leave this blank if you're building from the root of your domain.
+
+You may want to update `media` too, if you plan on changing where uploads are stored. (If you do this, make sure to update `_config.yml`, so `picture.source` and `picture.output` match your updated location.
+
 ### GitHub Pages
 Under "Settings", select "Pages". Under "Build and deployment", set "Source" to "GitHub Actions".
 
