@@ -6,6 +6,23 @@ on:
       - main # Here source code branch is `main`, it could be other branch
 
 jobs:
+  setup_node:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "18.x"
+          cache: "npm"
+      - name: Install dependencies
+        run: npm ci
+      - name: Build TinaCMS
+        env:
+          TINA_PUBLIC_CLIENT_ID: ${{ secrets.TINA_PUBLIC_CLIENT_ID }}
+          TINA_TOKEN: ${{ secrets.TINA_TOKEN }}
+        run: npx tinacms build
+
   build_and_deploy:
     runs-on: ubuntu-latest
     steps:
@@ -34,4 +51,4 @@ jobs:
           bundler_ver: ">=0" # Default is latest bundler version
           cname: "" # Default is to not use a cname
           actor: "" # Default is the GITHUB_ACTOR
-          pre_build_commands: pacman -S --noconfirm nodejs npx tinacms build
+          pre_build_commands: ""
