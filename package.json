@@ -12,6 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "@tinacms/cli": "^1.5.27",
+    "libvips": "^0.0.2",
     "tinacms": "^1.5.18"
   },
   "devDependencies": {

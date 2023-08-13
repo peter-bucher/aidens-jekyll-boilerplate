@@ -4582,6 +4582,11 @@ level-transcoder@^1.0.1:
     buffer "^6.0.3"
     module-error "^1.0.1"
 
+libvips@^0.0.2:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/libvips/-/libvips-0.0.2.tgz#9c7c87916f5b324358eb721fef8097cbc2644e54"
+  integrity sha512-E+jHGKSgWuep9t2oFvV9ll6i0YUVVWyNaMgr3zKP4hLYZmaP2qTQeSrGe7tvhUgwcLD8gn2nacgdi1WxMmOJMw==
+
 lilconfig@^2.0.5, lilconfig@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/lilconfig/-/lilconfig-2.1.0.tgz#78e23ac89ebb7e1bfbf25b18043de756548e7f52"

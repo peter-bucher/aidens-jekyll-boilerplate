@@ -13,3 +13,7 @@ collections:
 tagline:
 description:
 contact:
+picture:
+  source: "uploads/"
+  output: "uploads/generated-images"
+  suppress_warnings: true
