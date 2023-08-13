@@ -1,0 +1,45 @@
+@import "units";
+
+// Fonts
+/////////////////////////////////////////////////////
+// @font-face {
+
+// }
+
+// Base Type
+/////////////////////////////////////////////////////
+* {
+  font-family: "Inter", "Helvetica", sans-serif;
+  font-style: normal;
+}
+
+@mixin h1 {
+  font-size: $unit-lg;
+}
+
+@mixin h2 {
+  font-size: $unit-md;
+}
+
+@mixin p {
+  font-size: $unit-sm;
+}
+
+h1 {
+  @include h1();
+}
+
+h2 {
+  @include h2();
+}
+
+p {
+  @include p();
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
