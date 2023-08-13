@@ -1,7 +1,6 @@
 import { defineConfig } from "tinacms";
 
-// Your hosting provider likely exposes this as an environment variable
-const branch = process.env.HEAD || process.env.VERCEL_GIT_COMMIT_REF || "main";
+const branch = "main";
 
 export default defineConfig({
   branch,
@@ -14,12 +13,31 @@ export default defineConfig({
   },
   media: {
     tina: {
-      mediaRoot: "uploads",
+      mediaRoot: "_uploads",
       publicFolder: "assets",
     },
   },
   schema: {
     collections: [
+      {
+        name: "settings",
+        label: "Settings",
+        path: "_settings",
+        ui: {
+          // Don't allow editors to create new settings items
+          allowedActions: {
+            create: false,
+            delete: false,
+          },
+        },
+        fields: [
+          {
+            type: "string",
+            name: "title",
+            label: "Title",
+          },
+        ],
+      },
       {
         name: "post",
         label: "Posts",
@@ -75,5 +93,13 @@ export default defineConfig({
         ],
       },
     ],
+  },
+  search: {
+    tina: {
+      indexerToken: "<Your Search Token>", // Add Token
+      stopwordLanguages: ["eng"],
+    },
+    indexBatchSize: 100,
+    maxSearchIndexFieldLength: 100,
   },
 });

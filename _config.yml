@@ -1,6 +1,8 @@
 ---
-title: aidensymes.com-2020
+title:
 timezone: UTC
+exclude:
+  - tina
 collections:
   posts:
     title: Posts
@@ -8,9 +10,6 @@ collections:
   uploads:
     title: Uploads
     output: true
-defaults:
-  -
-title:
-tagline: 
-description: 
-contact: 
+tagline:
+description:
+contact:
