@@ -10,14 +10,15 @@ export default defineConfig({
   clientId: TINA_PUBLIC_CLIENT_ID,
   token: TINA_TOKEN,
   build: {
-    outputFolder: "admin",
     publicFolder: "/",
+    outputFolder: "admin",
     basePath: "aidens-jekyll-boilerplate",
   },
   media: {
     tina: {
-      publicFolder: "assets",
-      mediaRoot: "uploads",
+      publicFolder: "/",
+      mediaRoot: "assets/uploads",
+      static: true,
     },
   },
   schema: {
