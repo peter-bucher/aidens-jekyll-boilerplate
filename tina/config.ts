@@ -1,7 +1,6 @@
 import { defineConfig } from "tinacms";
 
 const BRANCH = process.env.HEAD || process.env.VERCEL_GIT_COMMIT_REF || "main";
-const BASE_PATH = String(process.env.BASE_PATH ?? "");
 
 const TINA_PUBLIC_CLIENT_ID = String(process.env.TINA_PUBLIC_CLIENT_ID ?? "");
 const TINA_TOKEN = String(process.env.TINA_TOKEN ?? "");
@@ -14,7 +13,7 @@ export default defineConfig({
   build: {
     publicFolder: "/",
     outputFolder: "admin",
-    basePath: BASE_PATH,
+    basePath: "aidens-jekyll-boilerplate",
   },
   media: {
     tina: {
