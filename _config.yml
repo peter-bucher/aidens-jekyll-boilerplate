@@ -7,6 +7,12 @@ collections:
   posts:
     title: Posts
     output: true
+  pages:
+    title: Pages
+    output: true
+  settings:
+    title: Settings
+    output: true
 tagline:
 description:
 contact:

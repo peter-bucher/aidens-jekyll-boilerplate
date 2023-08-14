@@ -1,6 +1,8 @@
 import { defineConfig } from "tinacms";
 
 const BRANCH = process.env.HEAD || process.env.VERCEL_GIT_COMMIT_REF || "main";
+const BASE_PATH = String(process.env.BASE_PATH ?? "");
+
 const TINA_PUBLIC_CLIENT_ID = String(process.env.TINA_PUBLIC_CLIENT_ID ?? "");
 const TINA_TOKEN = String(process.env.TINA_TOKEN ?? "");
 const TINA_SEARCH_TOKEN = String(process.env.TINA_SEARCH_TOKEN ?? "");
@@ -12,7 +14,7 @@ export default defineConfig({
   build: {
     publicFolder: "/",
     outputFolder: "admin",
-    basePath: "aidens-jekyll-boilerplate",
+    basePath: BASE_PATH,
   },
   media: {
     tina: {
@@ -33,11 +35,101 @@ export default defineConfig({
             delete: false,
           },
         },
-        fields: [
+        templates: [
           {
-            type: "string",
-            name: "title",
-            label: "Title",
+            name: "global",
+            label: "Global Settings",
+            fields: [
+              {
+                name: "layout",
+                label: "Title",
+                type: "string",
+              },
+            ],
+          },
+          {
+            name: "nav",
+            label: "Navigation Settings",
+            fields: [
+              {
+                name: "layout",
+                label: "Title",
+                type: "string",
+              },
+            ],
+          },
+        ],
+      },
+      {
+        name: "pages",
+        label: "Pages",
+        path: "/_pages",
+        ui: {
+          filename: {
+            readonly: true,
+            slugify: (values) => {
+              return `${values?.title?.toLowerCase().replace(/\s/g, "-")}`;
+            },
+          },
+        },
+        templates: [
+          {
+            name: "home",
+            label: "Home Page",
+            ui: {
+              defaultItem: {
+                title: "Home",
+                layout: "home",
+                permalink: "/",
+              },
+            },
+            fields: [
+              {
+                name: "title",
+                label: "Title",
+                type: "string",
+                isTitle: true,
+                required: true,
+              },
+              {
+                name: "layout",
+                label: "Layout",
+                type: "string",
+              },
+              {
+                name: "permalink",
+                label: "Permalink",
+                type: "string",
+              },
+            ],
+          },
+          {
+            name: "default",
+            label: "Default Page",
+            ui: {
+              defaultItem: {
+                layout: "default",
+              },
+            },
+            fields: [
+              {
+                name: "title",
+                label: "Title",
+                type: "string",
+                isTitle: true,
+                required: true,
+              },
+              {
+                name: "layout",
+                label: "Layout",
+                type: "string",
+              },
+              {
+                name: "permalink",
+                label: "Permalink",
+                type: "string",
+              },
+            ],
           },
         ],
       },
@@ -62,35 +154,38 @@ export default defineConfig({
             },
           },
         },
+        defaultItem: {
+          layout: "default",
+        },
         fields: [
           {
-            type: "string",
             name: "layout",
             label: "Layout",
+            type: "string",
           },
           {
-            type: "string",
             name: "permalink",
             label: "Permalink",
+            type: "string",
           },
           {
-            type: "boolean",
             name: "published",
             label: "Published",
+            type: "boolean",
             required: true,
             description: "Should this be published",
           },
           {
-            type: "string",
             name: "title",
             label: "Title",
+            type: "string",
             isTitle: true,
             required: true,
           },
           {
-            type: "rich-text",
             name: "body",
             label: "Body",
+            type: "rich-text",
             isBody: true,
           },
         ],
