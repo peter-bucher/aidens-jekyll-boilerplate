@@ -63,7 +63,7 @@ export default defineConfig({
       {
         name: "pages",
         label: "Pages",
-        path: "/_pages",
+        path: "_pages",
         ui: {
           filename: {
             readonly: true,
